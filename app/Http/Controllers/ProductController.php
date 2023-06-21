@@ -43,6 +43,8 @@ class ProductController extends Controller
             ->where('id', $id)
             ->first();
 
+
+
         return view('product.show', compact('product'));
     }
 

@@ -24,8 +24,26 @@
         </nav>
     </header>
 
-    <main>
-        @yield('content')
+    <main class="container mx-auto">
+        <div class="text-center px-3 py-3 rounded-xl text-green-800">
+            <div class="bg-green-100 rounded-lg shadow-lg p-6">
+                <h1 class="font-bold text-2xl">TestKart Products</h1>
+                <div class="mt-3">
+                    <h2 class="text-xl font-semibold">{{ auth()->user()->name }}</h2>
+                    <p class="text-gray-600">{{ auth()->user()->email }}</p>
+                </div>
+                <form action="{{ route('logout') }}" method="POST" class="mt-6">
+                    @csrf
+                    <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded">
+                        <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div>
+            @yield('content')
+        </div>
+
     </main>
 
     <footer>

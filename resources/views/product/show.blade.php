@@ -1,18 +1,15 @@
 @extends('layout')
 
-@section('title', 'Welcome to My Website')
+@section('title', $product?->name)
 
 @section('content')
-<div class="container mx-auto flex flex-col justify-center">
-    <div class="text-center bg-green-200 py-3 rounded-xl text-green-800">
-        <h1 class="font-bold text-2xl">TestKart Products</h1>
-    </div>
+<div class="flex flex-col justify-center">
 
     @if($product)
     <div class="mt-3 rounded-lg flex flex-col items-center justify-left flex-grow-0 p-3">
         <div class="flex-col md:flex justify-center items-start">
             <div>
-                <a href="{{route('products')}}">
+                <a href="{{route('home')}}">
                     <p class="cursor-pointer"><i class="fa-solid fa-arrow-left-long fa-xl"></i><span class="ml-3 font-normal">Go back</span></p>
                 </a>
                 <img src="{{ asset('sample_image.png') }}" alt="" width="300" height="auto" class="mt-9">
@@ -26,8 +23,9 @@
     </div>
     @else
 
-    <div class="bg-green-100 p-4 shadow rounded-lg flex flex-col items-center justify-around flex-grow-0">
-        <h1>Product not found</h1>
+    <div class="p-4 flex flex-col items-center justify-around">
+        <img src="{{asset('not_found.png')}}" alt="product not found image" width="300">
+        <h1 class="mt-3 text-2xl font-semibold">Product not found</h1>
     </div>
     @endif
 
